@@ -1,0 +1,117 @@
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "1Gr-Ge-alt"; */
+"1Gr-Ge-alt.normalTitle" = "Démarrer";
+
+/* Class = "UISegmentedControl"; 1V9-K0-VaY.segmentTitles[0] = "Individual"; ObjectID = "1V9-K0-VaY"; */
+"1V9-K0-VaY.segmentTitles[0]" = "Individuel";
+
+/* Class = "UISegmentedControl"; 1V9-K0-VaY.segmentTitles[1] = "Team"; ObjectID = "1V9-K0-VaY"; */
+"1V9-K0-VaY.segmentTitles[1]" = "Equipe";
+
+/* Class = "UINavigationItem"; title = "Team"; ObjectID = "4eX-wL-MxF"; */
+"4eX-wL-MxF.title" = "Equipe";
+
+/* Class = "UINavigationItem"; title = "Player"; ObjectID = "58I-jj-LK9"; */
+"58I-jj-LK9.title" = "Joueur";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "5Qu-TL-AGp"; */
+"5Qu-TL-AGp.text" = "Titre";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "9hg-Y6-k5k"; */
+"9hg-Y6-k5k.title" = "Abandonner";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "9w2-GN-lIv"; */
+"9w2-GN-lIv.normalTitle" = "Modifier";
+
+/* Class = "UINavigationItem"; title = "Members selection"; ObjectID = "Awz-NI-Erw"; */
+"Awz-NI-Erw.title" = "Sélection des membres";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Cdg-WN-Tqx"; */
+"Cdg-WN-Tqx.text" = "Titre";
+
+/* Class = "UILabel"; text = "Sport"; ObjectID = "DDP-3n-dWy"; */
+"DDP-3n-dWy.text" = "Sport";
+
+/* Class = "UILabel"; text = "Date of birth"; ObjectID = "Eq7-WK-lid"; */
+"Eq7-WK-lid.text" = "Date de naissance";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "F2J-t9-ecm"; */
+"F2J-t9-ecm.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Teams"; ObjectID = "G6z-7N-2Sl"; */
+"G6z-7N-2Sl.title" = "Equipes";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Gbf-Zf-LbZ"; */
+"Gbf-Zf-LbZ.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Competitors selection"; ObjectID = "H5K-m2-6uf"; */
+"H5K-m2-6uf.title" = "Sélection des compétiteurs";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "JFk-Xa-r5O"; */
+"JFk-Xa-r5O.normalTitle" = "Modifier";
+
+/* Class = "UITabBarItem"; title = "Players"; ObjectID = "NiW-ho-ah4"; */
+"NiW-ho-ah4.title" = "Joueurs";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "Njl-dd-125"; */
+"Njl-dd-125.title" = "Enregistrer";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "QMY-U7-EwF"; */
+"QMY-U7-EwF.text" = "Titre";
+
+/* Class = "UILabel"; text = "Full name"; ObjectID = "RaQ-QG-fiM"; */
+"RaQ-QG-fiM.text" = "Nom complet";
+
+/* Class = "UILabel"; text = "Start date"; ObjectID = "WFf-ox-JtE"; */
+"WFf-ox-JtE.text" = "Date de départ";
+
+/* Class = "UILabel"; text = "Members"; ObjectID = "Wta-rG-eON"; */
+"Wta-rG-eON.text" = "Membres";
+
+/* Class = "UITabBarItem"; title = "Teams"; ObjectID = "Xof-MJ-CqI"; */
+"Xof-MJ-CqI.title" = "Equipes";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "cTn-M1-fWA"; */
+"cTn-M1-fWA.title" = "Enregistrer";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "dCh-KX-mGD"; */
+"dCh-KX-mGD.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Competition"; ObjectID = "eEE-1A-lZZ"; */
+"eEE-1A-lZZ.title" = "Compétition";
+
+/* Class = "UILabel"; text = "Type of competitors"; ObjectID = "efi-Za-SNb"; */
+"efi-Za-SNb.text" = "Type de compétiteurs";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "fk0-IL-ibm"; */
+"fk0-IL-ibm.text" = "Titre";
+
+/* Class = "UILabel"; text = "End date"; ObjectID = "gPU-9A-6WU"; */
+"gPU-9A-6WU.text" = "Date de fin";
+
+/* Class = "UITabBarItem"; title = "Competitions"; ObjectID = "iDB-Ba-G9a"; */
+"iDB-Ba-G9a.title" = "Compétitions";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "kcs-Eh-bBl"; */
+"kcs-Eh-bBl.text" = "Nom";
+
+/* Class = "UILabel"; text = "Competitors"; ObjectID = "ku8-vP-lrw"; */
+"ku8-vP-lrw.text" = "Compétiteurs";
+
+/* Class = "UILabel"; text = "Sex"; ObjectID = "lqg-hl-7JW"; */
+"lqg-hl-7JW.text" = "Sexe";
+
+/* Class = "UINavigationItem"; title = "Competitions"; ObjectID = "sOy-QZ-pov"; */
+"sOy-QZ-pov.title" = "Compétitions";
+
+/* Class = "UISegmentedControl"; wgn-VC-UKu.segmentTitles[0] = "Man"; ObjectID = "wgn-VC-UKu"; */
+"wgn-VC-UKu.segmentTitles[0]" = "Homme";
+
+/* Class = "UISegmentedControl"; wgn-VC-UKu.segmentTitles[1] = "Woman"; ObjectID = "wgn-VC-UKu"; */
+"wgn-VC-UKu.segmentTitles[1]" = "Femme";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "wiA-Ap-2dt"; */
+"wiA-Ap-2dt.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Players"; ObjectID = "zme-bY-Voh"; */
+"zme-bY-Voh.title" = "Joueurs";

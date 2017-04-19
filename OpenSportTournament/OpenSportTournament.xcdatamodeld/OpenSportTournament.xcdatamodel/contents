@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Competition" representedClassName=".CompetitionMO" syncable="YES">
+        <attribute name="competitorType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sport" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="competitors" toMany="YES" deletionRule="Nullify" destinationEntity="Competitor" inverseName="competition" inverseEntity="Competitor" syncable="YES"/>
+    </entity>
+    <entity name="CompetitionPhase" representedClassName="CompetitionPhase" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="competitionId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" syncable="YES"/>
+    </entity>
+    <entity name="Competitor" representedClassName=".CompetitorMO" isAbstract="YES" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="competition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="competitors" inverseEntity="Competition" syncable="YES"/>
+    </entity>
+    <entity name="Player" representedClassName=".PlayerMO" parentEntity="Competitor" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="team" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="members" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Team" representedClassName=".TeamMO" parentEntity="Competitor" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Player" inverseName="team" inverseEntity="Player" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Competition" positionX="117" positionY="-126" width="128" height="148"/>
+        <element name="Competitor" positionX="-135" positionY="-135" width="128" height="90"/>
+        <element name="Player" positionX="-234" positionY="59" width="128" height="105"/>
+        <element name="Team" positionX="-18" positionY="87" width="128" height="75"/>
+        <element name="CompetitionPhase" positionX="-54" positionY="0" width="128" height="90"/>
+    </elements>
+</model>
