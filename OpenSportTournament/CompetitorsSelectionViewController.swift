@@ -118,6 +118,24 @@ class CompetitorsSelectionViewController: UITableViewController {
 
         dismiss(animated: false, completion: nil)
     }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Remove all competitors from the current competition, even if no competitors are selected in the table view
+        self.competition.competitors?.removeAllObjects()
+        
+        if let indexes = self.tableView.indexPathsForSelectedRows {
+            
+            for index in indexes {
+                let competitor = self.filteredCompetitors[index.row]
+                self.competition.competitors?.add(competitor)
+            }
+        }
+        
+        let destinationViewController = segue.destination as! CompetitionViewController
+        
+        destinationViewController.competition = self.competition
+    }
 }
 
 extension CompetitorsSelectionViewController: UISearchBarDelegate {

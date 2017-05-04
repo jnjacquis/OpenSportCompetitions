@@ -11,9 +11,11 @@ import Foundation
 
 class TeamViewController: UIViewController, UITableViewDataSource {
     
+    @IBOutlet weak var teamImage: UIImageView!
     @IBOutlet weak var teamName: UITextField!
 
     @IBOutlet weak var teamMembers: UITableView!
+    
     @IBOutlet weak var cancel: UIBarButtonItem!
     
     @IBOutlet weak var navBar: UINavigationBar!
@@ -64,18 +66,6 @@ class TeamViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCellEditingStyle,
                             forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            
-//            if let member = self.team.members?[indexPath.row] {
-//
-//                
-//                // Save this change for the team in Core Date
-//                TeamsDataService.instance.save(team: self.team)
-//                
-//                // Update the table view of members
-//                tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
-//            }
-//        }
         if editingStyle == .delete {
             guard let members = self.team.members else {
                 return
@@ -106,38 +96,22 @@ class TeamViewController: UIViewController, UITableViewDataSource {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let button = sender as! UIBarButtonItem
-//        print(button.title)
+       
+        if self.team == nil {
+            self.team = TeamMO(entity: TeamsDataService.instance.entity, insertInto: TeamsDataService.instance.managedContext)
+        }
         
-//        if self.team == nil {
-//            // Create instance of entity and set its properties from the view fields
-//            self.team = TeamMO(entity: TeamsDataService.instance.entity,
-//                                   insertInto: TeamsDataService.instance.managedContext)
-//            self.team.name = self.teamName.text!;
-//            self.team.members = NSMutableOrderedSet()
-//        }
-//        
-//        let segueId = segue.identifier
-//        print(segueId)
-//        
-//        let dest = segue.destination as! TeamsViewController
-//        print(dest)
-//        
         if segue.identifier == "showMemberSelection" {
             
             if let navigationController = segue.destination as? UINavigationController {
                 
                 if let controller = navigationController.topViewController as? MembersSelectionViewController {
-                    if self.team == nil {
-                        self.team = TeamMO(entity: TeamsDataService.instance.entity, insertInto: TeamsDataService.instance.managedContext)
-                    }
-                    
                     controller.team = self.team
                 }
             }
         } else {
 
-            guard let button: UIBarButtonItem = sender as! UIBarButtonItem, button.title == "Save" else {
+            guard let button: UIBarButtonItem = sender as! UIBarButtonItem, (button.title != "Cancel" && button.title != "Abandonner") else {
                 return
             }
             
@@ -147,13 +121,16 @@ class TeamViewController: UIViewController, UITableViewDataSource {
             TeamsDataService.instance.save(team: self.team)
             
             let destinationController = segue.destination as! TeamsViewController
-            
+
             if !destinationController.teams.contains(self.team) {
                 destinationController.teams.append(self.team)
                 destinationController.filteredTeams.append(self.team)
             }
             else {
-                destinationController.teams.index(of: <#T##TeamMO#>)
+                if let teamIndex = destinationController.teams.index(of: self.team) {
+                    destinationController.teams[teamIndex] = self.team
+                    destinationController.filteredTeams[teamIndex] = self.team
+                }
             }
         }
     }

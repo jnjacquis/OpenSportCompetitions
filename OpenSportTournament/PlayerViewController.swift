@@ -15,7 +15,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var playerName: UITextField!
     @IBOutlet weak var playerSex: UISegmentedControl!
     @IBOutlet weak var playerBirthdate: UIDatePicker!
-
+    @IBOutlet weak var playerRanking: UITextField!
     
     public var player: PlayerMO!
     
@@ -97,6 +97,12 @@ class PlayerViewController: UIViewController {
         if !destinationController.players.contains(self.player) {
             destinationController.players.append(self.player)
             destinationController.filteredPlayers.append(self.player)
+        }
+        else {
+            if let playerIndex = destinationController.players.index(of: self.player) {
+                destinationController.players[playerIndex] = self.player
+                destinationController.filteredPlayers[playerIndex] = self.player
+            }
         }
     }
 }

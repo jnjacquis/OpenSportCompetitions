@@ -1,8 +1,8 @@
 //
 //  CompetitionMO+CoreDataClass.swift
-//  OpenSportTournament
+//  OpenSportCompetitions
 //
-//  Created by Jean-Noel on 11/04/2017.
+//  Created by Jean-Noel on 28/04/2017.
 //  Copyright © 2017 jjs. All rights reserved.
 //
 

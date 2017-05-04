@@ -20,5 +20,5 @@ extension PlayerMO {
     @NSManaged public var gender: String?
     @NSManaged public var id: Int32
     @NSManaged public var team: TeamMO?
-
+    @NSManaged public var ranking: String?
 }
