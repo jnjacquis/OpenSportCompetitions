@@ -1,27 +1,29 @@
 //
 //  PlayerViewController.swift
-//  OpenSportTournament
+//  OpenSportCompetitions
 //
-//  Created by Jean-Noel on 25/02/2017.
+//  Created by Jean-Noel on 28/06/2017.
 //  Copyright © 2017 jjs. All rights reserved.
 //
 
 import UIKit
 import Foundation
 import CoreData
+import CoreGraphics
 
-class PlayerViewController: UIViewController {
+class PlayerViewController: UIViewController, PlayerProtocol {
     
-    @IBOutlet weak var playerName: UITextField!
+    @IBOutlet weak var playerName: UILabel!
     @IBOutlet weak var playerSex: UISegmentedControl!
-    @IBOutlet weak var playerBirthdate: UIDatePicker!
-    @IBOutlet weak var playerRanking: UITextField!
+    @IBOutlet weak var playerBirthdate: UILabel!
+    @IBOutlet weak var playerRanking: UILabel!
+    @IBOutlet weak var playerImage: UIImageView!
     
     public var player: PlayerMO!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if let playr = try self.player {
             self.playerName.text = playr.name;
             
@@ -34,8 +36,26 @@ class PlayerViewController: UIViewController {
             }
             
             if let birthday = playr.birthday {
-                self.playerBirthdate.date = birthday as Date;
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.locale = Locale.current
+                self.playerBirthdate.text = dateFormatter.string(from: birthday as Date);
             }
+            
+            if let image = playr.photo {
+                let photoData: Data = player.photo as! Data
+                playerImage.image = UIImage(data: photoData)
+            }
+            else {
+                if playr.gender == "Man" {
+                    playerImage.image = #imageLiteral(resourceName: "man-2-icon-2")
+                }
+                else {
+                    playerImage.image = #imageLiteral(resourceName: "woman-2-icon-2")
+                }
+            }
+            
+            self.playerRanking.text = playr.ranking
         }
     }
     
@@ -44,65 +64,15 @@ class PlayerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelPlayer(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func savePlayer(_ sender: Any) {
-    
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-        
-        if self.player == nil {
-            let managedContext =
-                appDelegate.persistentContainer.viewContext
-            let entity = NSEntityDescription.entity(forEntityName: "Player",
-                                                    in: managedContext)!
-            // Create instance of entity and set its properties from the view fields
-            self.player = PlayerMO(entity: entity,
-                                  insertInto: managedContext)
-        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        self.player.name = self.playerName.text!;
-        self.player.gender = self.playerSex.titleForSegment(at: self.playerSex.selectedSegmentIndex);
-        self.player.birthday = self.playerBirthdate.date as NSDate;
-        
-        PlayersDataService.instance.save(player: player)
-        
-        dismiss(animated: false, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
-        if self.player == nil {
-            // Create instance of entity and set its properties from the view fields
-            self.player = PlayerMO(entity: PlayersDataService.instance.entity,
-                                   insertInto: PlayersDataService.instance.managedContext)
-        }
-        
-        self.player.name = self.playerName.text!;
-        if self.playerSex.selectedSegmentIndex == 0 {
-            self.player.gender = "Man"
-        } else {
-            self.player.gender = "Woman"
-        }
-        self.player.birthday = self.playerBirthdate.date as NSDate;
-        
-        // Save instance player in any case
-        PlayersDataService.instance.save(player: player)
-        
-        let destinationController = segue.destination as! PlayersViewController
-        
-        if !destinationController.players.contains(self.player) {
-            destinationController.players.append(self.player)
-            destinationController.filteredPlayers.append(self.player)
-        }
-        else {
-            if let playerIndex = destinationController.players.index(of: self.player) {
-                destinationController.players[playerIndex] = self.player
-                destinationController.filteredPlayers[playerIndex] = self.player
-            }
-        }
+//        guard segue.destination is PlayerProtocol else {
+//            fatalError("Should not occur")
+//        }
+
+        var myctrl = segue.destination as! PlayerProtocol
+        myctrl.player = self.player
     }
 }
+
+

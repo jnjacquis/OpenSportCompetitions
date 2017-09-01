@@ -47,7 +47,9 @@ class TeamsViewController: UITableViewController {
         
             return name0 < name1
         }
+        
         self.filteredTeams = self.teams
+        self.tableView.reloadData()
     }
     
     
@@ -140,9 +142,11 @@ class TeamsViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let myctrl = segue.destination as? TeamViewController else {
+        guard segue.destination is TeamProtocol else {
             fatalError("Should not occur")
         }
+        
+        var myctrl = segue.destination as! TeamProtocol
         
         if let indexpath = tableView.indexPathForSelectedRow {
             myctrl.team = teams[indexpath.row]

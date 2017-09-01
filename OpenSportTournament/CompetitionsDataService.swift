@@ -54,7 +54,7 @@ class CompetitionsDataService {
         
         do {
             let results = try managedContext.fetch(fetchRequest)
-            var competitions = results as! [CompetitionMO]
+            var competitions = results
 
 //            if competitions.count == 0 {
 //                competitions = mockSomeCompetitions()
@@ -64,15 +64,16 @@ class CompetitionsDataService {
 //                    self.save(competition: competition)
 //                }
 //                print("Mock competitions saved with success")
-//            } else {
-//                for competition in competitions {
-//                    if let competitorsCount = competition.competitors {
-//                        print("Competition with \(competitorsCount) competitors")
-//                    } else {
-//                        print("Competition with no competitor")
-//                    }
-//                }
 //            }
+            
+            for competition in competitions {
+                if let competitors = competition.competitors {
+                    print("Competition with \(competitors.count) competitors")
+                } else {
+                    print("Competition with no competitor")
+                }
+            }
+            
             
             self._competitions = competitions
         } catch let error as NSError {

@@ -24,7 +24,7 @@ class MembersSelectionViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.searchBar.delegate = self
+        //self.searchBar.delegate = self
         
         self.tableView.setEditing(true, animated: false)
         self.tableView.allowsMultipleSelectionDuringEditing = true
@@ -79,7 +79,12 @@ class MembersSelectionViewController: UITableViewController {
     }
     
     @IBAction func cancel() {
-        dismiss(animated: false, completion: nil)
+//        //dismiss(animated: false, completion: nil)
+//        let storyboard = UIStoryboard(name: "Teams", bundle: nil)
+//        let teamEditViewController = storyboard.instantiateViewController(withIdentifier: "teamEditViewController") as! TeamEditViewController
+//        self.present(teamEditViewController, animated: false, completion: nil)
+//        
+        self.navigationController?.popViewController(animated: false)
     }
     
     @IBAction func saveMembers() {
@@ -93,13 +98,12 @@ class MembersSelectionViewController: UITableViewController {
                 self.team.members?.add(player)
             }
         }
+
+        if let teamEditVC = self.navigationController?.viewControllers[2] as? TeamEditViewController {
+            teamEditVC.team = self.team
+        }
         
-        // Instantiate view controller
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let teamViewController = storyboard.instantiateViewController(withIdentifier: "teamViewController") as! TeamViewController
-        teamViewController.team = self.team
-        
-        dismiss(animated: false, completion: nil)
+        self.navigationController?.popViewController(animated: false)
     }
 }
 

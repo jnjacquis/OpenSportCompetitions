@@ -11,6 +11,9 @@ import CoreData
 
 
 public class CompetitionStageMO: NSManagedObject {
+    public static func getFetchRequest() -> NSFetchRequest<CompetitionStageMO> {
+        return CompetitionStageMO.fetchRequest()
+    }
     
     public func descript() -> String {
         var type: String? = nil

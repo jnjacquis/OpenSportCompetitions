@@ -1,8 +1,8 @@
 //
 //  CompetitorMO+CoreDataProperties.swift
-//  OpenSportTournament
+//  OpenSportCompetitions
 //
-//  Created by Jean-Noel on 11/04/2017.
+//  Created by Jean-Noel on 02/06/2017.
 //  Copyright © 2017 jjs. All rights reserved.
 //
 
@@ -18,6 +18,7 @@ extension CompetitorMO {
 
     @NSManaged public var active: Bool
     @NSManaged public var name: String?
+    @NSManaged public var photo: NSData?
     @NSManaged public var competition: CompetitionMO?
 
 }

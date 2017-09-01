@@ -35,8 +35,15 @@ class CompetitionsViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         let allCompetitions = CompetitionsDataService.instance.competitions
-        
-        self.competitions = allCompetitions.sorted { $0.title! < $1.title! }
+        self.competitions = allCompetitions
+        //self.competitions = allCompetitions.sorted { (o1, o2) -> Bool {
+        //        if $0.title != nil && $1.title != nil {
+        //            return $0.title! < $1.title!
+        //        } else {
+        //            return false
+        //        }
+        //    }
+        //}
         self.filteredCompetitions = self.competitions
     }
     
@@ -127,12 +134,18 @@ class CompetitionsViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let myctrl = segue.destination as? CompetitionViewController else {
-            fatalError("Should not occur")
-        }
+        //let indexpath = tableView.indexPathForSelectedRow
+        //let competitionSelected = competitions[(indexpath?.row)!]
         
-        if let indexpath = tableView.indexPathForSelectedRow {
-            myctrl.competition = competitions[indexpath.row]
+        if let myctrl = segue.destination as? CompetitionViewController {
+            if let indexpath = tableView.indexPathForSelectedRow {
+                myctrl.competition = competitions[indexpath.row]
+            }
+        }
+        if let myctrl = segue.destination as? CompetitionEditViewController {
+            if let indexpath = tableView.indexPathForSelectedRow {
+                myctrl.competition = competitions[indexpath.row]
+            }
         }
     }
     
