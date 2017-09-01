@@ -70,42 +70,42 @@ class MatchsDataService {
         
         let match1 = MatchMO(entity: MatchsDataService.entity, insertInto: MatchsDataService.managedContext)
         match1.id = 101
-        match1.stageId = competStage1
+        match1.stage = competStage1
         matches.update(with: match1)
         
         let match2 = MatchMO(entity: MatchsDataService.entity, insertInto: MatchsDataService.managedContext)
         match2.id = 102
-        match2.stageId = competStage1
+        match2.stage = competStage1
         matches.update(with: match2)
         
         let match3 = MatchMO(entity: MatchsDataService.entity, insertInto: MatchsDataService.managedContext)
         match3.id = 103
-        match3.stageId = competStage1
+        match3.stage = competStage1
         matches.update(with: match3)
         
         let match4 = MatchMO(entity: MatchsDataService.entity, insertInto: MatchsDataService.managedContext)
         match4.id = 104
-        match4.stageId = competStage1
+        match4.stage = competStage1
         matches.update(with: match4)
         
         let match5 = MatchMO(entity: MatchsDataService.entity, insertInto: MatchsDataService.managedContext)
         match5.id = 105
-        match5.stageId = competStage1
+        match5.stage = competStage1
         matches.update(with: match5)
         
         let match6 = MatchMO(entity: MatchsDataService.entity, insertInto: MatchsDataService.managedContext)
         match6.id = 106
-        match6.stageId = competStage1
+        match6.stage = competStage1
         matches.update(with: match6)
         
         let match7 = MatchMO(entity: MatchsDataService.entity, insertInto: MatchsDataService.managedContext)
         match7.id = 107
-        match7.stageId = competStage1
+        match7.stage = competStage1
         matches.update(with: match7)
         
         let match8 = MatchMO(entity: MatchsDataService.entity, insertInto: MatchsDataService.managedContext)
         match8.id = 108
-        match8.stageId = competStage1
+        match8.stage = competStage1
         matches.update(with: match8)
         
         
