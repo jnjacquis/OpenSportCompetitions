@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import UIKit
+
+class MatchesGraphViewController: UIViewController {
+    
+    private var match: MatchMO?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.match = MatchMO(entity: MatchsDataService.entity, insertInto: MatchsDataService.managedContext)
+    }
+}
