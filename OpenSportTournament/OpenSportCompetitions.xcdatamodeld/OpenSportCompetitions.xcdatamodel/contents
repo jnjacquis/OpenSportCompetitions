@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Competition" representedClassName=".CompetitionMO" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="competitorType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -9,18 +9,19 @@
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="competitors" toMany="YES" deletionRule="Nullify" destinationEntity="Competitor" inverseName="competition" inverseEntity="Competitor" syncable="YES"/>
-        <relationship name="stages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CompetitionStage" inverseName="competitionId" inverseEntity="CompetitionStage" syncable="YES"/>
+        <relationship name="stages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CompetitionStage" inverseName="competition" inverseEntity="CompetitionStage" syncable="YES"/>
     </entity>
     <entity name="CompetitionStage" representedClassName=".CompetitionStageMO" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="competitionId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="stages" inverseEntity="Competition" syncable="YES"/>
-        <relationship name="competitors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competitor" syncable="YES"/>
+        <relationship name="competition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="stages" inverseEntity="Competition" syncable="YES"/>
+        <relationship name="matches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Match" syncable="YES"/>
     </entity>
     <entity name="Competitor" representedClassName=".CompetitorMO" isAbstract="YES" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="competition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="competitors" inverseEntity="Competition" syncable="YES"/>
     </entity>
     <entity name="Match" representedClassName=".MatchMO" syncable="YES">
@@ -46,9 +47,9 @@
     <elements>
         <element name="Competition" positionX="117" positionY="-126" width="128" height="180"/>
         <element name="CompetitionStage" positionX="-54" positionY="0" width="128" height="120"/>
-        <element name="Competitor" positionX="-135" positionY="-135" width="128" height="90"/>
+        <element name="Competitor" positionX="-135" positionY="-135" width="128" height="105"/>
+        <element name="Match" positionX="-54" positionY="9" width="128" height="150"/>
         <element name="Player" positionX="-234" positionY="59" width="128" height="120"/>
         <element name="Team" positionX="-18" positionY="87" width="128" height="75"/>
-        <element name="Match" positionX="-54" positionY="9" width="128" height="150"/>
     </elements>
 </model>

@@ -16,6 +16,7 @@ extension CompetitionMO {
         return NSFetchRequest<CompetitionMO>(entityName: "Competition")
     }
 
+    @NSManaged public var active: Bool
     @NSManaged public var competitorType: Int16
     @NSManaged public var endDate: NSDate?
     @NSManaged public var id: Int16

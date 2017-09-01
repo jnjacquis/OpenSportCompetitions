@@ -113,7 +113,7 @@ class CompetitorsSelectionViewController: UITableViewController {
         
         // Instantiate destination view controller
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let competitionViewController = storyboard.instantiateViewController(withIdentifier: "competitionViewController") as! CompetitionViewController
+        let competitionViewController = storyboard.instantiateViewController(withIdentifier: "competitionViewController") as! CompetitionEditViewController
         competitionViewController.competition = self.competition
 
         dismiss(animated: false, completion: nil)
@@ -132,7 +132,7 @@ class CompetitorsSelectionViewController: UITableViewController {
             }
         }
         
-        let destinationViewController = segue.destination as! CompetitionViewController
+        let destinationViewController = segue.destination as! CompetitionEditViewController
         
         destinationViewController.competition = self.competition
     }

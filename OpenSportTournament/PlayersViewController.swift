@@ -33,10 +33,12 @@ class PlayersViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // (Re)Load all the players in the database
         let allPlayers = PlayersDataService.instance.players
-        
         self.players = allPlayers.sorted { $0.name! < $1.name! }
+        
         self.filteredPlayers = self.players
+        self.tableView.reloadData()
     }
     
     var deleteIndexPath: NSIndexPath? = nil
@@ -146,18 +148,20 @@ class PlayersViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let myctrl = segue.destination as? PlayerViewController else {
+        guard segue.destination is PlayerProtocol else {
             fatalError("Should not occur")
         }
+        
+        var myctrl = segue.destination as! PlayerProtocol
         
         if let indexpath = tableView.indexPathForSelectedRow {
             myctrl.player = players[indexpath.row]
         }
     }
     
-    @IBAction func backPlayer(_ segue: UIStoryboardSegue) {
-        self.tableView.reloadData()
-    }
+//    @IBAction func backPlayer(_ segue: UIStoryboardSegue) {
+//        self.tableView.reloadData()
+//    }
 }
 
 extension PlayersViewController: UISearchBarDelegate {

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7TM-Ah-jqt">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Storyboard Reference-->
+        <scene sceneID="2zW-pf-GA2">
+            <objects>
+                <viewControllerPlaceholder id="HvI-0g-Uf9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yz3-Yh-mqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="-1938"/>
+        </scene>
+        <!--Competitions-->
+        <scene sceneID="g3o-VQ-AnW">
+            <objects>
+                <tableViewController id="u6c-Ns-his" customClass="CompetitionsViewController" customModule="OpenSportCompetitions" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ACz-eq-DDv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="5AB-n6-JO5">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Gbf-Zf-LbZ" style="IBUITableViewCellStyleDefault" id="8aU-u0-gxZ">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8aU-u0-gxZ" id="akO-Hn-o2Q">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gbf-Zf-LbZ">
+                                            <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="u6c-Ns-his" id="RTR-2H-MFX"/>
+                            <outlet property="delegate" destination="u6c-Ns-his" id="PQp-bd-BW4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Competitions" id="sOy-QZ-pov">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2oP-45-LFe">
+                            <connections>
+                                <segue destination="6QK-xs-Lik" kind="showDetail" identifier="newCompetition" id="YMM-19-gUp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="5AB-n6-JO5" id="leE-Ih-Ksa"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgV-N9-DYT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1525" y="320"/>
+        </scene>
+        <!--Competition Controller-->
+        <scene sceneID="dZV-vI-nmv">
+            <objects>
+                <viewController storyboardIdentifier="competitionViewController" id="6QK-xs-Lik" userLabel="Competition Controller" customClass="CompetitionViewController" customModule="OpenSportCompetitions" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bSP-GM-YCO"/>
+                        <viewControllerLayoutGuide type="bottom" id="PEB-46-HZk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uRS-4x-jdI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sport" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDP-3n-dWy">
+                                <rect key="frame" x="12" y="118" width="61" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2TP-1N-G3X">
+                                <rect key="frame" x="105" y="77" width="202" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Competitors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku8-vP-lrw">
+                                <rect key="frame" x="16" y="399" width="146" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W5X-tx-SBv">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Competition" id="eEE-1A-lZZ">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Nik-5i-5mn">
+                                            <connections>
+                                                <segue destination="zv2-Hj-yMb" kind="unwind" unwindAction="backCompetition:" id="iod-JO-2cX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="cTn-M1-fWA">
+                                            <connections>
+                                                <segue destination="zv2-Hj-yMb" kind="unwind" unwindAction="backCompetition:" id="CkE-iA-Zj5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type of competitors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efi-Za-SNb">
+                                <rect key="frame" x="12" y="171" width="270" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="APc-aq-Ie2">
+                                <rect key="frame" x="0.0" y="444" width="414" height="292"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellCompetitor" textLabel="Cdg-WN-Tqx" style="IBUITableViewCellStyleDefault" id="71U-mi-zHM">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="71U-mi-zHM" id="jii-4p-IWx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cdg-WN-Tqx">
+                                                    <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFk-Xa-r5O">
+                                <rect key="frame" x="311" y="402" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <segue destination="M08-Dn-Y8J" kind="showDetail" identifier="showCompetitorSelection" id="NmO-NS-DNt"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1V9-K0-VaY">
+                                <rect key="frame" x="115" y="206" width="184" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Individual"/>
+                                    <segment title="Team"/>
+                                </segments>
+                                <connections>
+                                    <action selector="competitorTypeChanged:" destination="6QK-xs-Lik" eventType="valueChanged" id="XF3-jz-nEC"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noG-20-I2N">
+                                <rect key="frame" x="330" y="77" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Launch"/>
+                                <connections>
+                                    <action selector="launchCompetition:" destination="6QK-xs-Lik" eventType="touchUpInside" id="nF4-AT-Jhi"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z7k-3O-xJw">
+                                <rect key="frame" x="131" y="119" width="152" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-m0-myP">
+                                <rect key="frame" x="16" y="239" width="76" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d1B-GV-Y5k">
+                                <rect key="frame" x="12" y="278" width="386" height="116"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.93084824085235596" green="0.8934207558631897" blue="0.66699981689453125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellStage" id="IHw-4z-yAC">
+                                        <rect key="frame" x="0.0" y="28" width="386" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IHw-4z-yAC" id="5iV-7f-CI8">
+                                            <rect key="frame" x="0.0" y="0.0" width="386" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7KS-Pz-2Qg">
+                                        <rect key="frame" x="0.0" y="72" width="386" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7KS-Pz-2Qg" id="hNx-6a-3bo">
+                                            <rect key="frame" x="0.0" y="0.0" width="386" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tvl-7J-MAa">
+                                        <rect key="frame" x="0.0" y="116" width="386" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tvl-7J-MAa" id="O6F-h3-s0C">
+                                            <rect key="frame" x="0.0" y="0.0" width="386" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqI-L5-pWS">
+                                <rect key="frame" x="311" y="239" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="competitionCompetitorType" destination="1V9-K0-VaY" id="hhV-3J-gXW"/>
+                        <outlet property="competitionCompetitors" destination="APc-aq-Ie2" id="bsH-O2-pTs"/>
+                        <outlet property="competitionSport" destination="z7k-3O-xJw" id="bRh-gx-8Cv"/>
+                        <outlet property="competitionStages" destination="d1B-GV-Y5k" id="bfS-Vk-pIg"/>
+                        <outlet property="competitionTitle" destination="2TP-1N-G3X" id="wnj-Kb-a8J"/>
+                        <outlet property="launchCompetition" destination="noG-20-I2N" id="ax1-oo-SqD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xlh-d0-gA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zv2-Hj-yMb" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3203" y="76"/>
+        </scene>
+        <!--Competitors selection-->
+        <scene sceneID="pxf-QG-Uh9">
+            <objects>
+                <tableViewController id="6vD-WQ-hKo" customClass="CompetitorsSelectionViewController" customModule="OpenSportCompetitions" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ebb-28-0gg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="2Xo-LJ-s3D">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="fk0-IL-ibm" style="IBUITableViewCellStyleDefault" id="DnR-Cp-lpI">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DnR-Cp-lpI" id="oBX-lk-Xs8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fk0-IL-ibm">
+                                            <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6vD-WQ-hKo" id="b0f-C1-Qag"/>
+                            <outlet property="delegate" destination="6vD-WQ-hKo" id="yQH-xK-nmh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Competitors selection" id="H5K-m2-6uf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nJZ-ob-Us9">
+                            <connections>
+                                <action selector="cancel" destination="6vD-WQ-hKo" id="8XC-qg-LSS"/>
+                                <segue destination="he9-oL-DSl" kind="unwind" unwindAction="backFromCompetitorsSelection:" id="raA-nR-woH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EwH-Lt-5jS">
+                            <connections>
+                                <action selector="saveCompetitors" destination="6vD-WQ-hKo" id="FOO-At-e0T"/>
+                                <segue destination="he9-oL-DSl" kind="unwind" unwindAction="didCompetitorsSelection:" id="aVL-wc-NeW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="2Xo-LJ-s3D" id="aA6-rF-uuz"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kR4-qf-yi2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="he9-oL-DSl" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5268" y="435"/>
+        </scene>
+        <!--Competitions-->
+        <scene sceneID="ChZ-2O-XuD">
+            <objects>
+                <navigationController id="dWu-fs-U6b" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Competitions" id="iDB-Ba-G9a"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jy9-3e-F9m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="u6c-Ns-his" kind="relationship" relationship="rootViewController" id="TS4-oN-CV2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o3K-hI-nlI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="321"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zZm-HQ-wqT">
+            <objects>
+                <tabBarController storyboardIdentifier="TarBarVC" id="7TM-Ah-jqt" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="T1H-sS-e1T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NaU-ZV-fK4" kind="relationship" relationship="viewControllers" id="mE2-fT-eZz"/>
+                        <segue destination="uCF-Up-2wJ" kind="relationship" relationship="viewControllers" id="h2b-nB-psE"/>
+                        <segue destination="dWu-fs-U6b" kind="relationship" relationship="viewControllers" id="CDY-Ko-ix3"/>
+                        <segue destination="JWx-wp-u1S" kind="relationship" relationship="viewControllers" id="hDd-WD-d6M"/>
+                        <segue destination="eXu-MG-H7N" kind="relationship" relationship="viewControllers" id="PKA-7s-wty"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XkA-1Q-LjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-391" y="322"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sSY-jp-YWs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M08-Dn-Y8J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BBw-6E-QNl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6vD-WQ-hKo" kind="relationship" relationship="rootViewController" id="Gs8-Ci-x7N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zBf-2A-DlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4390" y="435"/>
+        </scene>
+        <!--Results-->
+        <scene sceneID="Zff-xV-Crv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eXu-MG-H7N" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Results" id="OuK-4F-GOu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F3j-tw-tGR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dof-Uz-d0h" kind="relationship" relationship="rootViewController" id="znn-JW-stT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbX-EB-qZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="1822"/>
+        </scene>
+        <!--Matches results-->
+        <scene sceneID="cJE-0k-1Nq">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="Matches results" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="dof-Uz-d0h" customClass="CompetitionGraphViewController" customModule="OpenSportCompetitions" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WdZ-Ie-ohI"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5BO-Lb-g0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1525" y="1821"/>
+        </scene>
+        <!--Players-->
+        <scene sceneID="5pS-FE-FJs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Players" id="NaU-ZV-fK4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="gzl-Jz-qph"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S5s-go-SCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="-1349"/>
+        </scene>
+        <!--UINavigationController-3g5-8j-Ncc-->
+        <scene sceneID="olA-02-njV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Teams" referencedIdentifier="UINavigationController-3g5-8j-Ncc" id="uCF-Up-2wJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="a6b-eH-GjM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCz-vX-c1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="-594"/>
+        </scene>
+        <!--teamViewController-->
+        <scene sceneID="YnZ-L1-7PU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="teamViewController" storyboardName="Teams" referencedIdentifier="teamViewController" id="7fc-uH-D3F" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ldz-nE-Qha" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2476.811594202899" y="-594.29347826086962"/>
+        </scene>
+        <!--UINavigationController-mxt-9D-sj9-->
+        <scene sceneID="SWg-WH-0ES">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Matches" referencedIdentifier="UINavigationController-mxt-9D-sj9" id="JWx-wp-u1S" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="hzJ-Fw-l37"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hqB-6K-OzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="1061"/>
+        </scene>
+        <!--matchesVC-->
+        <scene sceneID="u8d-7C-gHT">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="matchesVC" storyboardName="Matches" referencedIdentifier="matchesVC" id="o1Y-dw-e7v" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zdv-jM-LC0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1525" y="1061"/>
+        </scene>
+    </scenes>
+</document>
